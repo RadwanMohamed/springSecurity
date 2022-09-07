@@ -31,7 +31,6 @@ public class EazyBankUsernamePwdAuthenticationProvider implements Authentication
         String password = authentication.getCredentials().toString();
         CustomerEntity customer = customerRepository.findByEmail(usrname);
         if (customer != null){
-            System.out.println("ffff");
             List<GrantedAuthority> authorities = new ArrayList<>();
             authorities.add(new SimpleGrantedAuthority(customer.getRole()));
             return  new UsernamePasswordAuthenticationToken(usrname,password,authorities);
