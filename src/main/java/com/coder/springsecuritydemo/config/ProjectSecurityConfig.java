@@ -25,7 +25,7 @@ import javax.sql.DataSource;
 import java.util.Collections;
 
 
-@EnableWebSecurity
+@Configuration
 public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
