@@ -1,9 +1,9 @@
 package com.coder.springsecuritydemo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity(name="customer")
 public class CustomerEntity {
@@ -17,6 +17,9 @@ public class CustomerEntity {
     private String pwd;
     private String role;
 
+    @JsonIgnore
+    @OneToMany(mappedBy ="customer",fetch = FetchType.EAGER)
+    private Set<AuthorityEntity> authorityEntity;
     public int getId() {
         return id;
     }
@@ -48,4 +51,13 @@ public class CustomerEntity {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public Set<AuthorityEntity> getAuthorityEntity() {
+        return authorityEntity;
+    }
+
+    public void setAuthorityEntity(Set<AuthorityEntity> authorityEntity) {
+        this.authorityEntity = authorityEntity;
+    }
+
 }
