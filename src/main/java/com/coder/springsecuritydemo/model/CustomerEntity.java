@@ -19,7 +19,7 @@ public class CustomerEntity {
 
     @JsonIgnore
     @OneToMany(mappedBy ="customer",fetch = FetchType.EAGER)
-    private Set<AuthorityEntity> authorityEntity;
+    private Set<AuthorityEntity> authorities;
     public int getId() {
         return id;
     }
@@ -52,12 +52,11 @@ public class CustomerEntity {
         this.role = role;
     }
 
-    public Set<AuthorityEntity> getAuthorityEntity() {
-        return authorityEntity;
+    public Set<AuthorityEntity> getAuthorities() {
+        return authorities;
     }
 
-    public void setAuthorityEntity(Set<AuthorityEntity> authorityEntity) {
-        this.authorityEntity = authorityEntity;
+    public void setAuthorities(Set<AuthorityEntity> authorities) {
+        this.authorities = authorities;
     }
-
 }
